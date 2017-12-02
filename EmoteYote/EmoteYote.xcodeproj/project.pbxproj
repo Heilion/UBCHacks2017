@@ -16,6 +16,7 @@
 		925855AF1FD34A3D0064898E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925855AE1FD34A3D0064898E /* Assets.xcassets */; };
 		925855B21FD34A3D0064898E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925855B01FD34A3D0064898E /* LaunchScreen.storyboard */; };
 		92E5F6AE1FD35F3800E929FD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */; };
+		92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5F6AF1FD3680900E929FD /* Anchor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		925855B11FD34A3D0064898E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		925855B31FD34A3D0064898E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		92E5F6AF1FD3680900E929FD /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				925855A51FD34A3D0064898E /* Scene.sks */,
 				925855A71FD34A3D0064898E /* Scene.swift */,
 				925855A91FD34A3D0064898E /* ViewController.swift */,
+				92E5F6AF1FD3680900E929FD /* Anchor.swift */,
 				925855AB1FD34A3D0064898E /* Main.storyboard */,
 				925855AE1FD34A3D0064898E /* Assets.xcassets */,
 				925855B01FD34A3D0064898E /* LaunchScreen.storyboard */,
@@ -196,6 +199,7 @@
 			files = (
 				925855AA1FD34A3D0064898E /* ViewController.swift in Sources */,
 				925855A81FD34A3D0064898E /* Scene.swift in Sources */,
+				92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */,
 				925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,6 +42,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.worldAlignment = .gravityAndHeading
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -70,12 +71,6 @@ class ViewController: UIViewController, ARSKViewDelegate {
             }
         }
         return node;
-        
-        // Create and configure a node for the anchor added to the view's session.
-        let labelNode = SKLabelNode(text: "bitch")
-        labelNode.horizontalAlignmentMode = .center
-        labelNode.verticalAlignmentMode = .center
-        return labelNode;
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
