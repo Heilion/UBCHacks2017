@@ -3,17 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using api;
+using api.services;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     public class YoteController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private YoteService _yoteService;
+        public YoteController(YoteService yoteService)
         {
-            return new string[] { "value1", "value2" };
+            _yoteService = yoteService;
+        }
+
+        [HttpGet("yotes/")]
+        public IEnumerable<int> GetGroups([FromQuery] string lat, [FromQuery] string lng)
+        {
+            return new int[]{1};
+        }
+
+        [HttpGet("yote/{id}")]
+        public string GetGroup(int id)
+        {
+            return id.ToString();
         }
     }
 }
