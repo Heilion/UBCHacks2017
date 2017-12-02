@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import SceneKit
+import SpriteKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
-
-    @IBOutlet var sceneView: ARSCNView!
+class ViewController: UIViewController, ARSKViewDelegate {
+    
+    @IBOutlet var sceneView: ARSKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // Show statistics such as fps and node count
+        sceneView.showsFPS = true
+        sceneView.showsNodeCount = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        // Load the SKScene from 'Scene.sks'
+        if let scene = SKScene(fileNamed: "Scene") {
+            sceneView.presentScene(scene)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,17 +51,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
-    // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
+    // MARK: - ARSKViewDelegate
+    
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        // Create and configure a node for the anchor added to the view's session.
+        let labelNode = SKLabelNode(text: "👾")
+        labelNode.horizontalAlignmentMode = .center
+        labelNode.verticalAlignmentMode = .center
+        return labelNode;
     }
-*/
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
