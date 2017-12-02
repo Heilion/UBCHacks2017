@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import ARKit
+import SwiftLocation
 
 class ViewController: UIViewController, ARSKViewDelegate {
     
@@ -27,6 +28,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
         // Load the SKScene from 'Scene.sks'
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
+        }
+        
+        Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
+            print(location)
+        }) { (error, location) -> (Void) in
+            print(error)
         }
     }
     
