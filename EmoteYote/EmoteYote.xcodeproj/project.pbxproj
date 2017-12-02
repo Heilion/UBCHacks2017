@@ -7,62 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		925855841FD33DF70064898E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855831FD33DF70064898E /* AppDelegate.swift */; };
-		925855861FD33DF70064898E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 925855851FD33DF70064898E /* art.scnassets */; };
-		925855881FD33DF70064898E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855871FD33DF70064898E /* ViewController.swift */; };
-		9258558B1FD33DF70064898E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925855891FD33DF70064898E /* Main.storyboard */; };
-		9258558D1FD33DF70064898E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9258558C1FD33DF70064898E /* Assets.xcassets */; };
-		925855901FD33DF70064898E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258558E1FD33DF70064898E /* LaunchScreen.storyboard */; };
+		924CFC501FD350AC000C69C2 /* SwiftLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */; };
+		925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A31FD34A3D0064898E /* AppDelegate.swift */; };
+		925855A61FD34A3D0064898E /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 925855A51FD34A3D0064898E /* Scene.sks */; };
+		925855A81FD34A3D0064898E /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A71FD34A3D0064898E /* Scene.swift */; };
+		925855AA1FD34A3D0064898E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A91FD34A3D0064898E /* ViewController.swift */; };
+		925855AD1FD34A3D0064898E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925855AB1FD34A3D0064898E /* Main.storyboard */; };
+		925855AF1FD34A3D0064898E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925855AE1FD34A3D0064898E /* Assets.xcassets */; };
+		925855B21FD34A3D0064898E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925855B01FD34A3D0064898E /* LaunchScreen.storyboard */; };
+		92E5F6AE1FD35F3800E929FD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */; };
+		92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5F6AF1FD3680900E929FD /* Anchor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		925855801FD33DF70064898E /* EmoteYote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmoteYote.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		925855831FD33DF70064898E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		925855851FD33DF70064898E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		925855871FD33DF70064898E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9258558A1FD33DF70064898E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9258558C1FD33DF70064898E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9258558F1FD33DF70064898E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		925855911FD33DF70064898E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftLocation.framework; path = Carthage/Build/iOS/SwiftLocation.framework; sourceTree = "<group>"; };
+		925855A01FD34A3D0064898E /* EmoteYote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmoteYote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		925855A31FD34A3D0064898E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		925855A51FD34A3D0064898E /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
+		925855A71FD34A3D0064898E /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		925855A91FD34A3D0064898E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		925855AC1FD34A3D0064898E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		925855AE1FD34A3D0064898E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		925855B11FD34A3D0064898E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		925855B31FD34A3D0064898E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		92E5F6AF1FD3680900E929FD /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9258557D1FD33DF70064898E /* Frameworks */ = {
+		9258559D1FD34A3D0064898E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E5F6AE1FD35F3800E929FD /* SwiftyJSON.framework in Frameworks */,
+				924CFC501FD350AC000C69C2 /* SwiftLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		925855771FD33DF70064898E = {
+		924CFC4E1FD350AB000C69C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				925855821FD33DF70064898E /* EmoteYote */,
-				925855811FD33DF70064898E /* Products */,
+				92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */,
+				924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		925855971FD34A3D0064898E = {
+			isa = PBXGroup;
+			children = (
+				925855A21FD34A3D0064898E /* EmoteYote */,
+				925855A11FD34A3D0064898E /* Products */,
+				924CFC4E1FD350AB000C69C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		925855811FD33DF70064898E /* Products */ = {
+		925855A11FD34A3D0064898E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				925855801FD33DF70064898E /* EmoteYote.app */,
+				925855A01FD34A3D0064898E /* EmoteYote.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		925855821FD33DF70064898E /* EmoteYote */ = {
+		925855A21FD34A3D0064898E /* EmoteYote */ = {
 			isa = PBXGroup;
 			children = (
-				925855831FD33DF70064898E /* AppDelegate.swift */,
-				925855851FD33DF70064898E /* art.scnassets */,
-				925855871FD33DF70064898E /* ViewController.swift */,
-				925855891FD33DF70064898E /* Main.storyboard */,
-				9258558C1FD33DF70064898E /* Assets.xcassets */,
-				9258558E1FD33DF70064898E /* LaunchScreen.storyboard */,
-				925855911FD33DF70064898E /* Info.plist */,
+				925855A31FD34A3D0064898E /* AppDelegate.swift */,
+				925855A51FD34A3D0064898E /* Scene.sks */,
+				925855A71FD34A3D0064898E /* Scene.swift */,
+				925855A91FD34A3D0064898E /* ViewController.swift */,
+				92E5F6AF1FD3680900E929FD /* Anchor.swift */,
+				925855AB1FD34A3D0064898E /* Main.storyboard */,
+				925855AE1FD34A3D0064898E /* Assets.xcassets */,
+				925855B01FD34A3D0064898E /* LaunchScreen.storyboard */,
+				925855B31FD34A3D0064898E /* Info.plist */,
 			);
 			path = EmoteYote;
 			sourceTree = "<group>";
@@ -70,13 +92,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9258557F1FD33DF70064898E /* EmoteYote */ = {
+		9258559F1FD34A3D0064898E /* EmoteYote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 925855941FD33DF70064898E /* Build configuration list for PBXNativeTarget "EmoteYote" */;
+			buildConfigurationList = 925855B61FD34A3D0064898E /* Build configuration list for PBXNativeTarget "EmoteYote" */;
 			buildPhases = (
-				9258557C1FD33DF70064898E /* Sources */,
-				9258557D1FD33DF70064898E /* Frameworks */,
-				9258557E1FD33DF70064898E /* Resources */,
+				9258559C1FD34A3D0064898E /* Sources */,
+				9258559D1FD34A3D0064898E /* Frameworks */,
+				9258559E1FD34A3D0064898E /* Resources */,
+				924CFC511FD350EC000C69C2 /* ShellScript */,
+				924CFC521FD351BB000C69C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -84,26 +108,26 @@
 			);
 			name = EmoteYote;
 			productName = EmoteYote;
-			productReference = 925855801FD33DF70064898E /* EmoteYote.app */;
+			productReference = 925855A01FD34A3D0064898E /* EmoteYote.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		925855781FD33DF70064898E /* Project object */ = {
+		925855981FD34A3D0064898E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Anthony Smith";
 				TargetAttributes = {
-					9258557F1FD33DF70064898E = {
+					9258559F1FD34A3D0064898E = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 9258557B1FD33DF70064898E /* Build configuration list for PBXProject "EmoteYote" */;
+			buildConfigurationList = 9258559B1FD34A3D0064898E /* Build configuration list for PBXProject "EmoteYote" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,55 +135,90 @@
 				en,
 				Base,
 			);
-			mainGroup = 925855771FD33DF70064898E;
-			productRefGroup = 925855811FD33DF70064898E /* Products */;
+			mainGroup = 925855971FD34A3D0064898E;
+			productRefGroup = 925855A11FD34A3D0064898E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9258557F1FD33DF70064898E /* EmoteYote */,
+				9258559F1FD34A3D0064898E /* EmoteYote */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9258557E1FD33DF70064898E /* Resources */ = {
+		9258559E1FD34A3D0064898E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				925855861FD33DF70064898E /* art.scnassets in Resources */,
-				925855901FD33DF70064898E /* LaunchScreen.storyboard in Resources */,
-				9258558D1FD33DF70064898E /* Assets.xcassets in Resources */,
-				9258558B1FD33DF70064898E /* Main.storyboard in Resources */,
+				925855A61FD34A3D0064898E /* Scene.sks in Resources */,
+				925855B21FD34A3D0064898E /* LaunchScreen.storyboard in Resources */,
+				925855AF1FD34A3D0064898E /* Assets.xcassets in Resources */,
+				925855AD1FD34A3D0064898E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		924CFC511FD350EC000C69C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftLocation.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftLocation.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		924CFC521FD351BB000C69C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		9258557C1FD33DF70064898E /* Sources */ = {
+		9258559C1FD34A3D0064898E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				925855881FD33DF70064898E /* ViewController.swift in Sources */,
-				925855841FD33DF70064898E /* AppDelegate.swift in Sources */,
+				925855AA1FD34A3D0064898E /* ViewController.swift in Sources */,
+				925855A81FD34A3D0064898E /* Scene.swift in Sources */,
+				92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */,
+				925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		925855891FD33DF70064898E /* Main.storyboard */ = {
+		925855AB1FD34A3D0064898E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9258558A1FD33DF70064898E /* Base */,
+				925855AC1FD34A3D0064898E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		9258558E1FD33DF70064898E /* LaunchScreen.storyboard */ = {
+		925855B01FD34A3D0064898E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9258558F1FD33DF70064898E /* Base */,
+				925855B11FD34A3D0064898E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -167,7 +226,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		925855921FD33DF70064898E /* Debug */ = {
+		925855B41FD34A3D0064898E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -224,7 +283,7 @@
 			};
 			name = Debug;
 		};
-		925855931FD33DF70064898E /* Release */ = {
+		925855B51FD34A3D0064898E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,12 +333,16 @@
 			};
 			name = Release;
 		};
-		925855951FD33DF70064898E /* Debug */ = {
+		925855B71FD34A3D0064898E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9S7557CMJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EmoteYote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative.EmoteYote;
@@ -289,12 +352,16 @@
 			};
 			name = Debug;
 		};
-		925855961FD33DF70064898E /* Release */ = {
+		925855B81FD34A3D0064898E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9S7557CMJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EmoteYote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative.EmoteYote;
@@ -307,25 +374,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9258557B1FD33DF70064898E /* Build configuration list for PBXProject "EmoteYote" */ = {
+		9258559B1FD34A3D0064898E /* Build configuration list for PBXProject "EmoteYote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				925855921FD33DF70064898E /* Debug */,
-				925855931FD33DF70064898E /* Release */,
+				925855B41FD34A3D0064898E /* Debug */,
+				925855B51FD34A3D0064898E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		925855941FD33DF70064898E /* Build configuration list for PBXNativeTarget "EmoteYote" */ = {
+		925855B61FD34A3D0064898E /* Build configuration list for PBXNativeTarget "EmoteYote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				925855951FD33DF70064898E /* Debug */,
-				925855961FD33DF70064898E /* Release */,
+				925855B71FD34A3D0064898E /* Debug */,
+				925855B81FD34A3D0064898E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 925855781FD33DF70064898E /* Project object */;
+	rootObject = 925855981FD34A3D0064898E /* Project object */;
 }

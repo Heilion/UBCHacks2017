@@ -7,12 +7,13 @@
 //
 
 import UIKit
-import SceneKit
+import SpriteKit
 import ARKit
+import SwiftLocation
 
-class ViewController: UIViewController, ARSCNViewDelegate {
-
-    @IBOutlet var sceneView: ARSCNView!
+class ViewController: UIViewController, ARSKViewDelegate {
+    
+    @IBOutlet var sceneView: ARSKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +21,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        // Show statistics such as fps and node count
+        sceneView.showsFPS = true
+        sceneView.showsNodeCount = true
         
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        // Load the SKScene from 'Scene.sks'
+        if let scene = SKScene(fileNamed: "Scene") {
+            sceneView.presentScene(scene)
+        }
         
-        // Set the scene to the view
-        sceneView.scene = scene
+        Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
+            print(location)
+        }) { (error, location) -> (Void) in
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +42,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.worldAlignment = .gravityAndHeading
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -51,17 +59,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
-    // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
+    // MARK: - ARSKViewDelegate
+    
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        var node: SKNode?
+        if let anchor = anchor as? Anchor {
+            if let displayValue = anchor.displayValue {
+                node = SKLabelNode(text: displayValue)
+                node?.name = displayValue
+            }
+        }
+        return node;
     }
-*/
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

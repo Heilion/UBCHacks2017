@@ -33,12 +33,6 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -46,5 +40,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This application will use location for displaying relative data</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This application will use location for displaying relative data</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This application will use location for displaying relative data</string>
 </dict>
 </plist>
