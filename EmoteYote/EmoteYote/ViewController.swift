@@ -30,6 +30,11 @@ class ViewController: UIViewController, ARSKViewDelegate {
             sceneView.presentScene(scene)
         }
         
+        Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
+            print(location)
+        }) { (error, location) -> (Void) in
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
