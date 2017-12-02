@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0327C29A1FD34FBF008C14ED /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C2991FD34FBF008C14ED /* Anchor.swift */; };
 		925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A31FD34A3D0064898E /* AppDelegate.swift */; };
 		925855A61FD34A3D0064898E /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 925855A51FD34A3D0064898E /* Scene.sks */; };
 		925855A81FD34A3D0064898E /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A71FD34A3D0064898E /* Scene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0327C2991FD34FBF008C14ED /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		925855A01FD34A3D0064898E /* EmoteYote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmoteYote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925855A31FD34A3D0064898E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925855A51FD34A3D0064898E /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				925855AE1FD34A3D0064898E /* Assets.xcassets */,
 				925855B01FD34A3D0064898E /* LaunchScreen.storyboard */,
 				925855B31FD34A3D0064898E /* Info.plist */,
+				0327C2991FD34FBF008C14ED /* Anchor.swift */,
 			);
 			path = EmoteYote;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				925855AA1FD34A3D0064898E /* ViewController.swift in Sources */,
 				925855A81FD34A3D0064898E /* Scene.swift in Sources */,
+				0327C29A1FD34FBF008C14ED /* Anchor.swift in Sources */,
 				925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,10 +287,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A9S7557CMJ;
+				DEVELOPMENT_TEAM = A9QJXEJVYE;
 				INFOPLIST_FILE = EmoteYote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative.EmoteYote;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative2.EmoteYote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -298,10 +302,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A9S7557CMJ;
+				DEVELOPMENT_TEAM = A9QJXEJVYE;
 				INFOPLIST_FILE = EmoteYote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative.EmoteYote;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative2.EmoteYote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

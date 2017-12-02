@@ -55,8 +55,17 @@ class ViewController: UIViewController, ARSKViewDelegate {
     // MARK: - ARSKViewDelegate
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        var node: SKNode?
+        if let anchor = anchor as? Anchor {
+            if let displayValue = anchor.displayValue {
+                node = SKLabelNode(text: displayValue)
+                node?.name = displayValue
+            }
+        }
+        return node;
+        
         // Create and configure a node for the anchor added to the view's session.
-        let labelNode = SKLabelNode(text: "👾")
+        let labelNode = SKLabelNode(text: "bitch")
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         return labelNode;
