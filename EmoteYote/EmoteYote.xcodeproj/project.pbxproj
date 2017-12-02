@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		924CFC501FD350AC000C69C2 /* SwiftLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */; };
 		925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A31FD34A3D0064898E /* AppDelegate.swift */; };
 		925855A61FD34A3D0064898E /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 925855A51FD34A3D0064898E /* Scene.sks */; };
 		925855A81FD34A3D0064898E /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925855A71FD34A3D0064898E /* Scene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftLocation.framework; path = Carthage/Build/iOS/SwiftLocation.framework; sourceTree = "<group>"; };
 		925855A01FD34A3D0064898E /* EmoteYote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmoteYote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		925855A31FD34A3D0064898E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		925855A51FD34A3D0064898E /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
@@ -33,17 +35,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				924CFC501FD350AC000C69C2 /* SwiftLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		924CFC4E1FD350AB000C69C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		925855971FD34A3D0064898E = {
 			isa = PBXGroup;
 			children = (
 				925855A21FD34A3D0064898E /* EmoteYote */,
 				925855A11FD34A3D0064898E /* Products */,
+				924CFC4E1FD350AB000C69C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +92,8 @@
 				9258559C1FD34A3D0064898E /* Sources */,
 				9258559D1FD34A3D0064898E /* Frameworks */,
 				9258559E1FD34A3D0064898E /* Resources */,
+				924CFC511FD350EC000C69C2 /* ShellScript */,
+				924CFC521FD351BB000C69C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -137,6 +151,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		924CFC511FD350EC000C69C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftLocation.framework",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftLocation.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		924CFC521FD351BB000C69C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9258559C1FD34A3D0064898E /* Sources */ = {
@@ -284,6 +329,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9S7557CMJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EmoteYote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative.EmoteYote;
@@ -299,6 +348,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9S7557CMJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = EmoteYote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.rollinitiative.EmoteYote;
