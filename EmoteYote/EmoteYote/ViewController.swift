@@ -17,7 +17,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     @IBOutlet var sceneView: ARSKView!
     
-    let BASE_URL = "http://8109f048.ngrok.io/api/"
+    static let BASE_URL = "http://8109f048.ngrok.io/api/"
     var timer = Timer()
     var curScene: Scene?
     
@@ -51,6 +51,10 @@ class ViewController: UIViewController, ARSKViewDelegate {
             self.lastLat = location.coordinate.latitude
             self.lastLong = location.coordinate.longitude
             self.lastAlt = location.altitude
+            self.curScene?.curLat = self.lastLat
+            self.curScene?.curLong = self.lastLong
+            self.curScene?.curAlt = self.lastAlt
+            
             print("Updating GPS")
         }) { (error, location) -> (Void) in
             print(error)
@@ -98,7 +102,8 @@ class ViewController: UIViewController, ARSKViewDelegate {
 //            return
 //        }
         
-        let queryUrl = "\(BASE_URL)yotes/?lat=\(self.lastLat)&lng=\(self.lastLong)&height=\(self.lastAlt)"
+        let queryUrl = "\(ViewController.BASE_URL)yotes/?lat=\(self.lastLat!)&lng=\(self.lastLong!)&height=\(self.lastAlt!)"
+        print(queryUrl)
         Alamofire.request(queryUrl).responseJSON { response in
             print("Result: \(response.result)")                         // response serialization result
             
@@ -106,8 +111,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
                 let json = JSON(jsonResponse)
                 
                 for i in (0..<json.count) {
-                    //let yoteId = json[i]["YoteId"]
-                    //let data = json[i]["data"]
+                    let yoteId = json[i]["YoteId"]
+
+                    if (self.curScene?.emojiDHash.contains(yoteId.string!))! {
+                        continue
+                    }
+                    let data = json[i]["data"]
                     let x = json[i]["x"].float!
                     let y = json[i]["y"].float!
                     let z = json[i]["z"].float!
@@ -116,6 +125,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
                     emoji.xPos = Float(x)
                     emoji.yPos = Float(y)
                     emoji.zPos = Float(z)
+                    emoji.emojiValue = data.string!
                     self.curScene?.renderEmoji(emoji: emoji)
                 }
                 

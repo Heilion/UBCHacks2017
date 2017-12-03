@@ -9,6 +9,7 @@
 import SpriteKit
 import ARKit
 import Alamofire
+import SwiftyJSON
 
 extension String{
     static var randomEmoji: String {
@@ -23,6 +24,9 @@ class Scene: SKScene {
     var displayValue = "😀"
     var curLat: Double?
     var curLong: Double?
+    var curAlt: Double?
+    var emojiDHash = [String]()
+    var lastTransform: simd_float4x4?
     
     override func sceneDidLoad() {
         //scheduleEmojiUpdatePoller()
@@ -44,18 +48,41 @@ class Scene: SKScene {
         
         // Create anchor using the camera's current position
         if let currentFrame = sceneView.session.currentFrame {
-            
             // Create a transform with a translation of 0.2 meters in front of the camera
             var translation = matrix_identity_float4x4
             translation.columns.3.z = -0.2
-            let transform = simd_mul(currentFrame.camera.transform, translation)
+            self.lastTransform = simd_mul(currentFrame.camera.transform, translation)
             
-            // Add a new anchor to the session
-            // let anchor = ARAnchor(transform: transform)
-            let anchor = Anchor(transform: transform)
-            anchor.displayValue = self.displayValue
-            sceneView.session.add(anchor: anchor)
-            AddEmojiToDB(emojiValue: self.displayValue)
+            let parameters: Parameters = [
+                "YoteId": 0,
+                "Data": self.displayValue,
+                "x": Float(self.curLong!),
+                "y": Float(self.curAlt!),
+                "z": Float(self.curLat!),
+            ]
+            
+            let header: HTTPHeaders = [
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            ]
+            
+            Alamofire.request("\(ViewController.BASE_URL)yote", method:.post, parameters:parameters).responseJSON { response in
+                switch response.result {
+                case .success:
+                    let jsonResponse = JSON(response.result)
+                    print(jsonResponse)
+                    // Add a new anchor to the session
+                    // let anchor = ARAnchor(transform: transform)
+                    self.emojiDHash.append(jsonResponse["yoteId"].string!)
+                    let anchor = Anchor(transform: self.lastTransform!)
+                    anchor.displayValue = self.displayValue
+                    sceneView.session.add(anchor: anchor)
+                    
+                case .failure(let error):
+                    print(error)
+                }
+                
+            } 
         }
     }
     
