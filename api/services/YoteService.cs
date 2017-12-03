@@ -17,7 +17,9 @@ namespace api.services
 
         public List<Yote> GetNearbyYotes(float x, float y, float z)
         {
-            return this._dbContext.Yotes.Where((yote) => CalcDistance(x, y, z, yote.X, yote.Y, yote.Z) < 1).ToList();
+            //return this._dbContext.Yotes.Where((yote) => CalcDistance(x, y, z, yote.X, yote.Y, yote.Z) < 1).ToList();
+            var list = this._dbContext.Yotes.ToList();
+            return list;
         }
 
         public double CalcDistance(float x1, float y1, float z1, float x2, float y2, float z2)

@@ -17,7 +17,7 @@ namespace api
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=EmoteYote.db");
+            optionsBuilder.UseSqlite("Data Source=./EmoteYote.db");
         }
     }
 
