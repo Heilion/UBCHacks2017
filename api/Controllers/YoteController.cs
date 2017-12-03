@@ -19,15 +19,21 @@ namespace api.Controllers
         }
 
         [HttpGet("yotes/")]
-        public IEnumerable<int> GetGroups([FromQuery] string lat, [FromQuery] string lng)
+        public IEnumerable<Yote> GetGroups([FromQuery] float lat, [FromQuery] float lng, [FromQuery] float height)
         {
-            return new int[]{1};
+            return _yoteService.GetNearbyYotes(lat, lng, height);
         }
 
         [HttpGet("yote/{id}")]
         public string GetGroup(int id)
         {
             return id.ToString();
+        }
+
+        [HttpPost("yote/{id}")]
+        public Yote PostYote(int id, [FromBody] Yote yote)
+        {
+            return yote;
         }
     }
 }

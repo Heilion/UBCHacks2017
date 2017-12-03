@@ -10,10 +10,15 @@ import UIKit
 import SpriteKit
 import ARKit
 import SwiftLocation
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, ARSKViewDelegate {
     
     @IBOutlet var sceneView: ARSKView!
+    
+    let BASE_URL = "http://6e4c99a4.ngrok.io/api/"
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +41,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
             
         }
         
+        // Start local location polling
+        self.setUpLocalPolling()
+        
         Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
             print(location)
+            print("LAT \(location.altitude)")
         }) { (error, location) -> (Void) in
             print(error)
         }
@@ -49,6 +58,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        configuration.worldAlignment = .gravityAndHeading
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -64,6 +74,29 @@ class ViewController: UIViewController, ARSKViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    // MARK: - Data Polling
+    
+    func setUpLocalPolling() {
+        // Scheduling timer to Call the function "updatePoll" every 5 second, 5 seconds from now.
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: (#selector(ViewController.updateLocalPoll)), userInfo: nil, repeats: true)
+        
+        // Run polling once manually since the timer won't start until 5 seconds from now
+        self.updateLocalPoll()
+    }
+    
+    @objc func updateLocalPoll() {
+        print(self.sceneView.session.currentFrame?.camera.transform[3] as! float4)
+    
+        Alamofire.request(BASE_URL).responseJSON { response in
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let jsonResponse = response.result.value {
+                let json = JSON(jsonResponse)
+                print("JSON: \(json)") // serialized json response
+            }
+        }
     }
     
     // MARK: - ARSKViewDelegate

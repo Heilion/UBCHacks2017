@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace api
 {
 
     public class YoteContext : DbContext
     {
-        public DbSet<Yote> Groups { get; set; }
+        public DbSet<YoteData> YoteData { get; set; }
+        public DbSet<Yote> Yotes { get; set; }
+        public DbSet<RelativeLocation> RelativeLocations { get; set; }
+        public DbSet<YotePart> YoteParts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,6 +47,8 @@ namespace api
     public class Yote
     {
         public int YoteId { get; set; }
+
+        [IgnoreDataMember]
         public List<YotePart> YoteParts { get; set; }
 
         public float X { get; set; }
