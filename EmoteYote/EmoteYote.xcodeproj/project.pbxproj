@@ -19,7 +19,6 @@
 		92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5F6AF1FD3680900E929FD /* Anchor.swift */; };
 		92E5F6B21FD3774100E929FD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E5F6B11FD3774100E929FD /* Alamofire.framework */; };
 		92E5F6B51FD384AE00E929FD /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5F6B31FD384AE00E929FD /* Emoji.swift */; };
-		92E5F6B61FD384AE00E929FD /* Yote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5F6B41FD384AE00E929FD /* Yote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		92E5F6AF1FD3680900E929FD /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		92E5F6B11FD3774100E929FD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		92E5F6B31FD384AE00E929FD /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
-		92E5F6B41FD384AE00E929FD /* Yote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Yote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +84,6 @@
 			children = (
 				925855A31FD34A3D0064898E /* AppDelegate.swift */,
 				92E5F6B31FD384AE00E929FD /* Emoji.swift */,
-				92E5F6B41FD384AE00E929FD /* Yote.swift */,
 				925855A51FD34A3D0064898E /* Scene.sks */,
 				925855A71FD34A3D0064898E /* Scene.swift */,
 				925855A91FD34A3D0064898E /* ViewController.swift */,
@@ -213,7 +210,6 @@
 				925855AA1FD34A3D0064898E /* ViewController.swift in Sources */,
 				925855A81FD34A3D0064898E /* Scene.swift in Sources */,
 				92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */,
-				92E5F6B61FD384AE00E929FD /* Yote.swift in Sources */,
 				925855A41FD34A3D0064898E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

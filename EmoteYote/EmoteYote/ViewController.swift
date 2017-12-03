@@ -113,7 +113,8 @@ class ViewController: UIViewController, ARSKViewDelegate {
                     let y = json[i]["Y"].double
                     let z = json[i]["Z"].double
                     
-                    self.curScene?.renderEmoji()
+                    //let emoji = Emoji(x: x, y: y, z: z)
+                    //self.curScene?.renderEmoji()
                 }
                 
                 print("JSON: \(json)") // serialized json response

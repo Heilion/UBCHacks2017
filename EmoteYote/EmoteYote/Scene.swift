@@ -8,6 +8,7 @@
 
 import SpriteKit
 import ARKit
+import Alamofire
 
 extension String{
     static var randomEmoji: String {
@@ -19,8 +20,9 @@ extension String{
 }
 
 class Scene: SKScene {
-    var timer = Timer()
     var displayValue = "😀"
+    var curLat: Double?
+    var curLong: Double?
     
     override func sceneDidLoad() {
         //scheduleEmojiUpdatePoller()
@@ -53,6 +55,7 @@ class Scene: SKScene {
             let anchor = Anchor(transform: transform)
             anchor.displayValue = self.displayValue
             sceneView.session.add(anchor: anchor)
+            AddEmojiToDB(emojiValue: self.displayValue)
         }
     }
     
@@ -82,15 +85,21 @@ class Scene: SKScene {
         if let currentFrame = sceneView.session.currentFrame {
             // Create a transform with a translation of 0.2 meters in front of the camera
             var translation = matrix_identity_float4x4
-            translation.columns.3.z = -0.2
+            translation.columns.3.x = emoji.xPos!
+            translation.columns.3.y = emoji.yPos!
+            translation.columns.3.z = emoji.zPos!
             let transform = simd_mul(currentFrame.camera.transform, translation)
             
             // Add a new anchor to the session
             // let anchor = ARAnchor(transform: transform)
             let anchor = Anchor(transform: transform)
-            anchor.displayValue = self.displayValue
+            anchor.displayValue = emoji.emojiValue
             sceneView.session.add(anchor: anchor)
         }
+    }
+    
+    func AddEmojiToDB(emojiValue: String) {
+        
     }
         
 }
