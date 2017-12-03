@@ -30,10 +30,10 @@ namespace api.Controllers
             return id.ToString();
         }
 
-        [HttpPost("yote/{id}")]
-        public Yote PostYote(int id, [FromBody] Yote yote)
+        [HttpPost("yote/")]
+        public Yote PostYote([FromBody] Yote yote)
         {
-            return yote;
+            return _yoteService.AddYote(yote);
         }
     }
 }

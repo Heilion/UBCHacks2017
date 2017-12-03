@@ -18,30 +18,12 @@ namespace api.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
-            modelBuilder.Entity("api.RelativeLocation", b =>
-                {
-                    b.Property<int>("RelativeLocationId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("X");
-
-                    b.Property<int>("Y");
-
-                    b.Property<int?>("YotePartId");
-
-                    b.Property<int>("Z");
-
-                    b.HasKey("RelativeLocationId");
-
-                    b.HasIndex("YotePartId");
-
-                    b.ToTable("RelativeLocations");
-                });
-
             modelBuilder.Entity("api.Yote", b =>
                 {
                     b.Property<int>("YoteId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Data");
 
                     b.Property<float>("X");
 
@@ -52,49 +34,6 @@ namespace api.Migrations
                     b.HasKey("YoteId");
 
                     b.ToTable("Yotes");
-                });
-
-            modelBuilder.Entity("api.YoteData", b =>
-                {
-                    b.Property<int>("YoteDataId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("YoteString");
-
-                    b.HasKey("YoteDataId");
-
-                    b.ToTable("YoteData");
-                });
-
-            modelBuilder.Entity("api.YotePart", b =>
-                {
-                    b.Property<int>("YotePartId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("YoteDataId");
-
-                    b.Property<int>("YoteId");
-
-                    b.HasKey("YotePartId");
-
-                    b.HasIndex("YoteId");
-
-                    b.ToTable("YoteParts");
-                });
-
-            modelBuilder.Entity("api.RelativeLocation", b =>
-                {
-                    b.HasOne("api.YotePart")
-                        .WithMany("Locations")
-                        .HasForeignKey("YotePartId");
-                });
-
-            modelBuilder.Entity("api.YotePart", b =>
-                {
-                    b.HasOne("api.Yote")
-                        .WithMany("YoteParts")
-                        .HasForeignKey("YoteId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
