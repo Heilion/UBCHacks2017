@@ -102,6 +102,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         
         let emoji = Emoji()
         curScene?.renderEmoji(emoji: emoji)
+        
     }
     
     // MARK: - ARSKViewDelegate

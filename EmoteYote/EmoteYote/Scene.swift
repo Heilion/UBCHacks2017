@@ -8,6 +8,7 @@
 
 import SpriteKit
 import ARKit
+import Alamofire
 
 extension String{
     static var randomEmoji: String {
@@ -20,6 +21,8 @@ extension String{
 
 class Scene: SKScene {
     var displayValue = "😀"
+    var curLat: Double?
+    var curLong: Double?
     
     override func sceneDidLoad() {
         //scheduleEmojiUpdatePoller()
@@ -52,6 +55,7 @@ class Scene: SKScene {
             let anchor = Anchor(transform: transform)
             anchor.displayValue = self.displayValue
             sceneView.session.add(anchor: anchor)
+            AddEmojiToDB(emojiValue: self.displayValue)
         }
     }
     
@@ -78,6 +82,10 @@ class Scene: SKScene {
             anchor.displayValue = emoji.emojiValue
             sceneView.session.add(anchor: anchor)
         }
+    }
+    
+    func AddEmojiToDB(emojiValue: String) {
+        
     }
         
 }
