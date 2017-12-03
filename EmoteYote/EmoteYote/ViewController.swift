@@ -15,6 +15,8 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     @IBOutlet var sceneView: ARSKView!
     
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,9 @@ class ViewController: UIViewController, ARSKViewDelegate {
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
         }
+        
+        // Start local location polling
+        self.setUpLocalPolling()
         
         Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
             print(location)
@@ -58,6 +63,17 @@ class ViewController: UIViewController, ARSKViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+    }
+    
+    // MARK: - Data Polling
+    
+    func setUpLocalPolling() {
+        // Scheduling timer to Call the function "updatePoll" every 1 second
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateLocalPoll)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateLocalPoll() {
+        print(self.sceneView.session.currentFrame?.camera.transform[3] as! float4)
     }
     
     // MARK: - ARSKViewDelegate
