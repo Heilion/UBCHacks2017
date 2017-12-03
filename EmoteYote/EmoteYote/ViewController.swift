@@ -10,11 +10,14 @@ import UIKit
 import SpriteKit
 import ARKit
 import SwiftLocation
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, ARSKViewDelegate {
     
     @IBOutlet var sceneView: ARSKView!
     
+    let BASE_URL = "http://6e4c99a4.ngrok.io/api/"
     var timer = Timer()
     
     override func viewDidLoad() {
@@ -30,6 +33,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
         // Load the SKScene from 'Scene.sks'
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
+            
+            
+            if let tempScene = scene as? Scene {
+                tempScene.renderEmoji()
+            }
+            
         }
         
         // Start local location polling
@@ -37,9 +46,11 @@ class ViewController: UIViewController, ARSKViewDelegate {
         
         Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
             print(location)
+            print("LAT \(location.altitude)")
         }) { (error, location) -> (Void) in
             print(error)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,12 +79,24 @@ class ViewController: UIViewController, ARSKViewDelegate {
     // MARK: - Data Polling
     
     func setUpLocalPolling() {
-        // Scheduling timer to Call the function "updatePoll" every 1 second
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(ViewController.updateLocalPoll)), userInfo: nil, repeats: true)
+        // Scheduling timer to Call the function "updatePoll" every 5 second, 5 seconds from now.
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: (#selector(ViewController.updateLocalPoll)), userInfo: nil, repeats: true)
+        
+        // Run polling once manually since the timer won't start until 5 seconds from now
+        self.updateLocalPoll()
     }
     
     @objc func updateLocalPoll() {
         print(self.sceneView.session.currentFrame?.camera.transform[3] as! float4)
+    
+        Alamofire.request(BASE_URL).responseJSON { response in
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let jsonResponse = response.result.value {
+                let json = JSON(jsonResponse)
+                print("JSON: \(json)") // serialized json response
+            }
+        }
     }
     
     // MARK: - ARSKViewDelegate
@@ -84,9 +107,11 @@ class ViewController: UIViewController, ARSKViewDelegate {
             if let displayValue = anchor.displayValue {
                 node = SKLabelNode(text: displayValue)
                 node?.name = displayValue
+                
             }
         }
         return node;
+        
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -103,4 +128,5 @@ class ViewController: UIViewController, ARSKViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
 }

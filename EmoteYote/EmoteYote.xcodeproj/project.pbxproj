@@ -17,6 +17,7 @@
 		925855B21FD34A3D0064898E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925855B01FD34A3D0064898E /* LaunchScreen.storyboard */; };
 		92E5F6AE1FD35F3800E929FD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */; };
 		92E5F6B01FD3680900E929FD /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E5F6AF1FD3680900E929FD /* Anchor.swift */; };
+		92E5F6B21FD3774100E929FD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E5F6B11FD3774100E929FD /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		925855B31FD34A3D0064898E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		92E5F6AF1FD3680900E929FD /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		92E5F6B11FD3774100E929FD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			files = (
 				92E5F6AE1FD35F3800E929FD /* SwiftyJSON.framework in Frameworks */,
 				924CFC501FD350AC000C69C2 /* SwiftLocation.framework in Frameworks */,
+				92E5F6B21FD3774100E929FD /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 		924CFC4E1FD350AB000C69C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92E5F6B11FD3774100E929FD /* Alamofire.framework */,
 				92E5F6AD1FD35F3800E929FD /* SwiftyJSON.framework */,
 				924CFC4F1FD350AC000C69C2 /* SwiftLocation.framework */,
 			);
@@ -168,10 +172,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftLocation.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftLocation.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
