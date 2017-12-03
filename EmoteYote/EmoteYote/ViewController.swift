@@ -95,6 +95,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
             
             if let jsonResponse = response.result.value {
                 let json = JSON(jsonResponse)
+                
                 print("JSON: \(json)") // serialized json response
             }
         }
