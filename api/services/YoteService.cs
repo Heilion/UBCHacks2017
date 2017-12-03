@@ -30,5 +30,13 @@ namespace api.services
 
             return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
         }
+
+        public Yote AddYote(Yote yote)
+        {
+            var ret = this._dbContext.Yotes.Add(yote);
+            this._dbContext.SaveChanges();
+
+            return ret.Entity as Yote;
+        }
     }
 }
