@@ -29,5 +29,11 @@ namespace api.Controllers
         {
             return id.ToString();
         }
+
+        [HttpPost("yote/{id}")]
+        public Yote PostYote(int id, [FromBody] Yote yote)
+        {
+            return yote;
+        }
     }
 }
