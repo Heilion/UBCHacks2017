@@ -19,6 +19,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     let BASE_URL = "http://6e4c99a4.ngrok.io/api/"
     var timer = Timer()
+    var curScene: Scene?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
             
             
             if let tempScene = scene as? Scene {
-                tempScene.renderEmoji()
+                self.curScene = tempScene
             }
             
         }
@@ -83,7 +84,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: (#selector(ViewController.updateLocalPoll)), userInfo: nil, repeats: true)
         
         // Run polling once manually since the timer won't start until 5 seconds from now
-        self.updateLocalPoll()
+
     }
     
     @objc func updateLocalPoll() {
@@ -94,9 +95,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
             
             if let jsonResponse = response.result.value {
                 let json = JSON(jsonResponse)
+                
                 print("JSON: \(json)") // serialized json response
             }
         }
+        
+        curScene?.renderEmoji()
     }
     
     // MARK: - ARSKViewDelegate
