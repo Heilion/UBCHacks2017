@@ -12,12 +12,17 @@ import CoreGraphics
 class Emoji {
     var emojiValue: String?
     var skinTone: String?
-    var position: CGPoint?
+    var xPos: Float?
+    var yPos: Float?
+    var zPos: Float?
     
     init() {
         // perform some initialization here
         self.emojiValue = String.randomEmoji
         self.skinTone = "base"
+        self.xPos = 0.0
+        self.yPos = 0.0
+        self.zPos = -0.2
         
     }
     
