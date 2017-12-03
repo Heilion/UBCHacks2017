@@ -66,7 +66,7 @@ class Scene: SKScene {
                 "Accept": "application/json"
             ]
             
-            Alamofire.request("\(ViewController.BASE_URL)yote", method:.post, parameters:parameters).responseJSON { response in
+            Alamofire.request("\(ViewController.BASE_URL)yote", method:.post, parameters:parameters, headers: header).responseJSON { response in
                 switch response.result {
                 case .success:
                     let jsonResponse = JSON(response.result)
