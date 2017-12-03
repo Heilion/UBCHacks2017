@@ -68,15 +68,7 @@ class Scene: SKScene {
         self.displayValue = String.randomEmoji
     }
     
-    func renderYote(yote: Yote) {
-        let emojis = yote.emojis
-        for curEmoji in emojis {
-            
-            renderEmoji()
-        }
-    }
-    
-    func renderEmoji() {
+    func renderEmoji(emoji: Emoji) {
         guard let sceneView = self.view as? ARSKView else {
             return
         }

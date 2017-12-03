@@ -17,7 +17,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
     
     @IBOutlet var sceneView: ARSKView!
     
-    let BASE_URL = "http://6e4c99a4.ngrok.io/api/"
+    let BASE_URL = "http://8109f048.ngrok.io/api/"
     var timer = Timer()
     var curScene: Scene?
     
@@ -100,21 +100,23 @@ class ViewController: UIViewController, ARSKViewDelegate {
         
         let queryUrl = "\(BASE_URL)yotes/?lat=\(self.lastLat)&lng=\(self.lastLong)&height=\(self.lastAlt)"
         Alamofire.request(queryUrl).responseJSON { response in
-            print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             
             if let jsonResponse = response.result.value {
                 let json = JSON(jsonResponse)
                 
-                for var i in (0..<json.count) {
-                    let yoteId = json[i]["YoteId"]
-                    let data = json[i]["data"]
-                    let x = json[i]["X"].double
-                    let y = json[i]["Y"].double
-                    let z = json[i]["Z"].double
+                for i in (0..<json.count) {
+                    //let yoteId = json[i]["YoteId"]
+                    //let data = json[i]["data"]
+                    let x = json[i]["x"].float!
+                    let y = json[i]["y"].float!
+                    let z = json[i]["z"].float!
                     
-                    //let emoji = Emoji(x: x, y: y, z: z)
-                    //self.curScene?.renderEmoji()
+                    let emoji = Emoji()
+                    emoji.xPos = Float(x)
+                    emoji.yPos = Float(y)
+                    emoji.zPos = Float(z)
+                    self.curScene?.renderEmoji(emoji: emoji)
                 }
                 
                 print("JSON: \(json)") // serialized json response
