@@ -56,9 +56,9 @@ class Scene: SKScene {
             let parameters: Parameters = [
                 "YoteId": 0,
                 "Data": self.displayValue,
-                "x": Float(self.curLong!),
-                "y": Float(self.curAlt!),
-                "z": Float(self.curLat!),
+                "X": Float(self.curLat!),
+                "Y": Float(self.curAlt!),
+                "Z": Float(self.curLong!),
             ]
             
             let header: HTTPHeaders = [

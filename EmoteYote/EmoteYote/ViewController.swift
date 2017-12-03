@@ -55,7 +55,6 @@ class ViewController: UIViewController, ARSKViewDelegate {
             self.curScene?.curLong = self.lastLong
             self.curScene?.curAlt = self.lastAlt
             
-            print("Updating GPS")
         }) { (error, location) -> (Void) in
             print(error)
         }
@@ -111,15 +110,15 @@ class ViewController: UIViewController, ARSKViewDelegate {
                 let json = JSON(jsonResponse)
                 
                 for i in (0..<json.count) {
-                    let yoteId = json[i]["YoteId"]
+                    let yoteId = json[i]["yoteId"].int!
 
-                    if (self.curScene?.emojiDHash.contains(yoteId.string!))! {
+                    if (self.curScene?.emojiDHash.contains(String(yoteId)))! {
                         continue
                     }
                     let data = json[i]["data"]
-                    let x = json[i]["x"].float!
-                    let y = json[i]["y"].float!
-                    let z = json[i]["z"].float!
+                    let x = json[i]["lat"].float!
+                    let y = json[i]["height"].float!
+                    let z = json[i]["lng"].float!
                     
                     let emoji = Emoji()
                     emoji.xPos = Float(x)
