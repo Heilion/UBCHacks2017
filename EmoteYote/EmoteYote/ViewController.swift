@@ -21,6 +21,10 @@ class ViewController: UIViewController, ARSKViewDelegate {
     var timer = Timer()
     var curScene: Scene?
     
+    var lastLat: Double! = 0
+    var lastLong: Double! = 0
+    var lastAlt: Double! = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,19 +39,19 @@ class ViewController: UIViewController, ARSKViewDelegate {
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
             
-            
             if let tempScene = scene as? Scene {
                 self.curScene = tempScene
             }
-            
         }
         
         // Start local location polling
         self.setUpLocalPolling()
         
         Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
-            print(location)
-            print("LAT \(location.altitude)")
+            self.lastLat = location.coordinate.latitude
+            self.lastLong = location.coordinate.longitude
+            self.lastAlt = location.altitude
+            print("Updating GPS")
         }) { (error, location) -> (Void) in
             print(error)
         }
@@ -88,19 +92,33 @@ class ViewController: UIViewController, ARSKViewDelegate {
     }
     
     @objc func updateLocalPoll() {
-        print(self.sceneView.session.currentFrame?.camera.transform[3] as! float4)
+        //print(self.sceneView.session.currentFrame?.camera.transform[3] as! float4)
     
-        Alamofire.request(BASE_URL).responseJSON { response in
+//        guard let lat = self.lastLat, let long = self.lastLong, let alt = self.lastAlt, lat > 0, long > 0, alt > 0 else {
+//            return
+//        }
+        
+        let queryUrl = "\(BASE_URL)yotes/?lat=\(self.lastLat)&lng=\(self.lastLong)&height=\(self.lastAlt)"
+        Alamofire.request(queryUrl).responseJSON { response in
+            print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             
             if let jsonResponse = response.result.value {
                 let json = JSON(jsonResponse)
                 
+                for var i in (0..<json.count) {
+                    let yoteId = json[i]["YoteId"]
+                    let data = json[i]["data"]
+                    let x = json[i]["X"].double
+                    let y = json[i]["Y"].double
+                    let z = json[i]["Z"].double
+                    
+                    self.curScene?.renderEmoji()
+                }
+                
                 print("JSON: \(json)") // serialized json response
             }
         }
-        
-        curScene?.renderEmoji()
     }
     
     // MARK: - ARSKViewDelegate

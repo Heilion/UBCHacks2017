@@ -74,15 +74,12 @@ class Scene: SKScene {
     }
     
     func renderEmoji() {
-        print("Enter render emoji")
         guard let sceneView = self.view as? ARSKView else {
             return
         }
-        print("Got past return")
         
         // Create anchor using the camera's current position
         if let currentFrame = sceneView.session.currentFrame {
-            print("In current frame")
             // Create a transform with a translation of 0.2 meters in front of the camera
             var translation = matrix_identity_float4x4
             translation.columns.3.z = -0.2
