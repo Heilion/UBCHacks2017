@@ -23,7 +23,8 @@ class Scene: SKScene {
     var displayValue = "😀"
     
     override func sceneDidLoad() {
-        scheduleEmojiUpdatePoller()
+        //scheduleEmojiUpdatePoller()
+        
     }
     
     override func didMove(to view: SKView) {
@@ -50,17 +51,49 @@ class Scene: SKScene {
             // Add a new anchor to the session
             // let anchor = ARAnchor(transform: transform)
             let anchor = Anchor(transform: transform)
-            anchor.displayValue = displayValue
+            anchor.displayValue = self.displayValue
             sceneView.session.add(anchor: anchor)
         }
     }
     
-    func scheduleEmojiUpdatePoller() {
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Scene.updateEmote)), userInfo: nil, repeats: true)
-    }
+    //func scheduleEmojiUpdatePoller() {
+    //    // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+    //    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(Scene.updateEmote)), userInfo: nil, repeats: true)
+    //}
     
     @objc func updateEmote() {
         self.displayValue = String.randomEmoji
     }
+    
+    func renderYote(yote: Yote) {
+        let emojis = yote.emojis
+        for curEmoji in emojis {
+            
+            renderEmoji()
+        }
+    }
+    
+    func renderEmoji() {
+        print("Enter render emoji")
+        guard let sceneView = self.view as? ARSKView else {
+            return
+        }
+        print("Got past return")
+        
+        // Create anchor using the camera's current position
+        if let currentFrame = sceneView.session.currentFrame {
+            print("In current frame")
+            // Create a transform with a translation of 0.2 meters in front of the camera
+            var translation = matrix_identity_float4x4
+            translation.columns.3.z = -0.2
+            let transform = simd_mul(currentFrame.camera.transform, translation)
+            
+            // Add a new anchor to the session
+            // let anchor = ARAnchor(transform: transform)
+            let anchor = Anchor(transform: transform)
+            anchor.displayValue = self.displayValue
+            sceneView.session.add(anchor: anchor)
+        }
+    }
+        
 }

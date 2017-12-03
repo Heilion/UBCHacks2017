@@ -28,6 +28,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
         // Load the SKScene from 'Scene.sks'
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
+            
+            
+            if let tempScene = scene as? Scene {
+                tempScene.renderEmoji()
+            }
+            
         }
         
         Locator.subscribePosition(accuracy: .room, onUpdate: { (location) -> (Void) in
@@ -35,6 +41,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         }) { (error, location) -> (Void) in
             print(error)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,15 +74,11 @@ class ViewController: UIViewController, ARSKViewDelegate {
             if let displayValue = anchor.displayValue {
                 node = SKLabelNode(text: displayValue)
                 node?.name = displayValue
+                
             }
         }
         return node;
         
-        // Create and configure a node for the anchor added to the view's session.
-        let labelNode = SKLabelNode(text: "bitch")
-        labelNode.horizontalAlignmentMode = .center
-        labelNode.verticalAlignmentMode = .center
-        return labelNode;
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -92,4 +95,5 @@ class ViewController: UIViewController, ARSKViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
 }
